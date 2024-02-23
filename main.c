@@ -31,10 +31,13 @@ printf("%d\n",dequeue(&headPtr,&tailPtr));
 
  for(i=1;i<argc;i++){
         if(strcmp(argv[i],"x")==0){
-          x=dequeue_struct(&q);
-          if(x!=0){
+          if(q.size!=0){
+            x=dequeue_struct(&q);
+          
             printf("dequeing %d\n",x);
           }
+          else dequeue_struct(&q);
+          
           
         }
         else {
