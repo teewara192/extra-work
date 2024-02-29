@@ -9,7 +9,7 @@
 
 struct node
 {
-    int data;
+    int ordernum,quantity;
     struct node *nextPtr;
 };
 
@@ -17,10 +17,11 @@ typedef struct node Node;
 typedef struct node* NodePtr;
 
 
-void enqueue(NodePtr * head, NodePtr* tail, int x){
+void enqueue(NodePtr * head, NodePtr* tail, int x,int y){
   Node* new_node=(NodePtr) malloc(sizeof(Node));
 if(new_node){ 
-    new_node->data=x;
+    new_node->ordernum=x;
+    new_node->quantity=y;
     if(*head==NULL)*head=new_node;
     else (*tail)->nextPtr=new_node;
     *tail=new_node;
@@ -31,7 +32,7 @@ if(new_node){
 int dequeue(NodePtr* head, NodePtr* tail){
   NodePtr t=*head;
    if(t){
-   int value= t->data;
+   int value= t->ordernum;
    /* Finish dequeue*/
    *head=t->nextPtr;
    free(t);
@@ -40,7 +41,7 @@ int dequeue(NodePtr* head, NodePtr* tail){
        
    return value;
    }
-   printf("Empty queue");
+   printf("The queue is empty.\n");
    return 0;
 }
 

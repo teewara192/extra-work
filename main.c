@@ -10,7 +10,7 @@ int main(int argc , char **argv) {
   NodePtr tailPtr=NULL;
 
 //5 x 9 x 7 x 8 2 x
-enqueue(&headPtr,&tailPtr,5);
+/*enqueue(&headPtr,&tailPtr,5);
 printf("%d\n",dequeue(&headPtr,&tailPtr));
 enqueue(&headPtr,&tailPtr,9);
 printf("%d\n",dequeue(&headPtr,&tailPtr));
@@ -18,7 +18,7 @@ enqueue(&headPtr,&tailPtr,7);
 printf("%d\n",dequeue(&headPtr,&tailPtr));
 enqueue(&headPtr,&tailPtr,8);
 enqueue(&headPtr,&tailPtr,2);
-printf("%d\n",dequeue(&headPtr,&tailPtr));
+printf("%d\n",dequeue(&headPtr,&tailPtr));*/
 
 
 //For struct Queue
@@ -34,15 +34,17 @@ printf("%d\n",dequeue(&headPtr,&tailPtr));
           if(q.size!=0){
             x=dequeue_struct(&q);
           
-            printf("dequeing %d\n",x);
+            //printf("dequeing %d\n",x);
           }
           else dequeue_struct(&q);
-          
-          
         }
         else {
-       enqueue_struct(&q, atoi(argv[i]));
+       enqueue_struct(&q, atoi(argv[i]),atoi(argv[i+1]));
+       i++;
         }
  }
+ printf("===============================================\n");
+ printf("There are %d ppl in the queue\n",q.size);
+ printf("===============================================\n");
   return 0;
 }
